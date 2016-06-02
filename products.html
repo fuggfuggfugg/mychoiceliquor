@@ -94,25 +94,25 @@
                 <div class="col-lg-12 text-center submenu-container">
                     <div class="btn-group" data-toggle="buttons" id="prodSubmenu">
                         <label class="btn btn-info active">
-                            <input type="radio" name="options" id="option1" data-csv="beer.csv" autocomplete="off" checked> Beer
+                            <input type="radio" name="options" id="option1" data-csv="data/beer.csv" autocomplete="off" checked> Beer
                         </label>
                         <label class="btn btn-info">
-                            <input type="radio" name="options" id="option2" data-csv="liquer.csv" autocomplete="off"> Liquer
+                            <input type="radio" name="options" id="option2" data-csv="data/liquer.csv" autocomplete="off"> Liquer
                         </label>
                         <label class="btn btn-info">
-                            <input type="radio" name="options" id="option3" data-csv="rum_brandy.csv" autocomplete="off"> Rum/Brandy
+                            <input type="radio" name="options" id="option3" data-csv="data/rum_brandy.csv" autocomplete="off"> Rum/Brandy
                         </label>
                         <label class="btn btn-info">
-                            <input type="radio" name="options" id="option4" data-csv="tequila.csv" autocomplete="off"> Tequilla
+                            <input type="radio" name="options" id="option4" data-csv="data/tequila.csv" autocomplete="off"> Tequilla
                         </label>
                         <label class="btn btn-info">
-                            <input type="radio" name="options" id="option5" data-csv="vodka.csv" autocomplete="off"> Vodka
+                            <input type="radio" name="options" id="option5" data-csv="data/vodka.csv" autocomplete="off"> Vodka
                         </label>
                         <label class="btn btn-info">
-                            <input type="radio" name="options" id="option6" data-csv="whiskey.csv" autocomplete="off"> Whiskey/Scotch
+                            <input type="radio" name="options" id="option6" data-csv="data/whiskey.csv" autocomplete="off"> Whiskey/Scotch
                         </label>
                         <label class="btn btn-info">
-                            <input type="radio" name="options" id="option7" data-csv="wine.csv" autocomplete="off"> Wine
+                            <input type="radio" name="options" id="option7" data-csv="data/wine.csv" autocomplete="off"> Wine
                         </label>
                     </div>
                     <hr>
@@ -123,10 +123,12 @@
                 <table id="productsTable" class=" order-column stripe">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>
+                            <th class="hidden-xs" >Type</th>
+                            <th>Brand</th>
+                            <th>Description</th>
                             <th>Size</th>
-                            <th>Stock</th>
-                            <th><span class="glyphicon glyphicon-usd"></span></th>
+                            <th class="hidden-xs">Stock</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -157,54 +159,42 @@
     
     <!-- Mustache Templating -->
     <script src="js/mustache.min.js"></script>
-    
-    <!-- product tile template -->
-    <script id="prodTemplate" type="text/template">
-        {{#resultSet}}
-            <div class="item  col-md-4 col-lg-3 {{badge}}">
-                <div class="thumbnail">
-                    <img class="group list-group-image" src="img/prod-empty.png" alt="" />
-                    <div class="caption">
-                        <h4 class="group inner list-group-item-heading">
-                            {{name}}
-                        </h4>
-                    </div>
-                    <div class="badges">
-                        <div class="label label-info label-new-arrival"> In stock </div>
-                        <div class="label label-danger label-price-drop"> Price Drop </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
 
-        {{/resultSet}}
-    </script>
     
     <!-- product row template -->
     <script id="prodRowTemplate" type="text/template">
         {{#resultSet}}
-            <tr class="{{badge}}">
-                <td>
-                    {{name}}
+            <tr>
+                <td> </td>
+                <td class="hidden-xs" style="white-space: nowrap;">
+                    {{Type}}
                 </td>
                 <td>
-                    {{size}}
+                    {{Brand}}
                 </td>
                 <td>
+                    {{Description}}
+                </td>
+                <td>
+                    {{Size}}
+                </td>
+                <td class="hidden-xs">
                     <div class="label label-info label-new-arrival"> In Stock </div>
-                </td>
-                <td>
-                    <div class="label label-danger label-price-drop"> <span class=" glyphicon glyphicon-arrow-down"> </span> </div>
                 </td>
             </tr>
         {{/resultSet}}
     </script>
     
     <!-- product json list -->
-    <script id="prodJSON"  src="js/productlist.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" ></script>
+    <script src="js/csonv.min.js" ></script>
+    
 
     <script>
+        // csv to json settings
+        Csonv.separators.column = ",";
+        Csonv.separators.array  = "/";
+    
         // update footer
         var d = new Date();
         var n = d.getFullYear();
@@ -212,15 +202,15 @@
         $("#yr").html(n);
 
         $(function(){
-            template = $('#prodTemplate').html();
             prodRowTemplate = $('#prodRowTemplate').html();
             var table = null;
             
             function loadData(){
                 tabname = $("input[type='radio']:checked ").parent().text().trim().toLowerCase()
-                // $prodContainer = $("#products");
-                // $prodContainer.empty();
-                // $prodContainer.append(Mustache.render(template, { resultSet: prodlist[tabname] }));    
+                csvFileName = $("input[type='radio']:checked ").attr("data-csv")
+
+                var csvContent = csvFileName.toObjects();
+                // console.log(csvContent);
 
                 $productsTable = $("#productsTable");
                 if (table != null) {
@@ -229,14 +219,31 @@
                 
                 $productsTable.find("tbody").empty()
                 
+                // add rows via template
+                $productsTable.find("tbody").append(Mustache.render(prodRowTemplate, { resultSet: csvContent  }));
 
-                $productsTable.find("tbody").append(Mustache.render(prodRowTemplate, { resultSet: prodlist[tabname] }));
+                // setup dataTable
                 table = $productsTable.DataTable({
                     "paging":   false,
                     "ordering": true,
                     "info":     false,
-                    "searching": false
+                    "searching": true,
+                    "columnDefs": [ {
+                        "searchable": false,
+                        "orderable": false,
+                        "targets": 0
+                    } ],
+                    "order": [[ 1, 'asc' ]]
                 });
+
+                // add numbering
+                table.on( 'order.dt search.dt', function () {
+                    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                        cell.innerHTML = i+1;
+                    } );
+                } ).draw();
+
+
             }
 
             // load data when the selection is changed

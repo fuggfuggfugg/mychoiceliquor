@@ -1,4 +1,5 @@
 Brand,Description,Type,Size
+string,string,string,string
 14 HANDS,BRUT,CHAMPAGNE,0.75
 BELAIRE,BRUT,CHAMPAGNE,0.375
 BELAIRE ROSE,ROSE,CHAMPAGNE,0.75
