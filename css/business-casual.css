@@ -1,0 +1,407 @@
+/*!
+ * Start Bootstrap - Business Casual Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+ html,body {
+    margin:0;
+    padding:0;
+    height:100%; /* needed for container min-height */
+}
+
+body {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background: url('../img/bgpattern.png');
+    background-color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 1.25em;
+    line-height: 1.6;
+    color: #000;
+}
+
+
+a:focus, a:hover{
+    
+    text-decoration: none;
+}
+
+hr {
+    max-width: 400px;
+    border-color: #999999;
+}
+
+.brand,
+.address-bar {
+    display: none;
+}
+
+.navbar-brand {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px;
+    color: #fff !important;
+}
+
+.navbar-default .navbar-toggle{
+    border-color: transparent;
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+    background-color: #fff;
+}
+
+.navbar-nav {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+.img-full {
+    min-width: 100%;
+}
+
+.brand-before,
+.brand-name {
+    text-transform: capitalize;
+}
+
+.brand-before {
+    margin: 15px 0;
+}
+
+.brand-name {
+    margin: 0;
+    font-size: 4em;
+}
+
+.tagline-divider {
+    margin: 15px auto 3px;
+    max-width: 250px;
+    border-color: #999999;
+}
+
+.box {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fff;
+}
+
+.intro-text {
+    text-transform: uppercase;
+    font-size: 1.25em;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.img-border {
+    float: none;
+    margin: 0 auto 0;
+    border: #999999 solid 1px;
+}
+
+.img-left {
+    float: none;
+    margin: 0 auto 0;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    margin: 0;
+    padding: 20px 0;
+    color: rgba(255,255,255,0.5);
+    font-size:0.9em;
+}
+
+.navbar-default{
+    background-color: rgba(0,0,0,0.5);
+    border-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #FFF;
+    opacity: 0.6;
+    text-align: right;
+}
+
+.navbar-brand>img{
+    height: 30px;
+    display: inline-block;
+}
+
+.navbar-default .navbar-nav>li>a:focus, 
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a.active {
+    opacity: 1;
+    color: #FFF;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-toggle:focus, 
+.navbar-default .navbar-toggle:hover {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.navbar-default .navbar-collapse, 
+.navbar-default .navbar-form{
+    border-color: rgba(231, 231, 231, 0.25);
+}
+
+.hours{
+    margin: 0 auto;
+}
+
+.hours tr.active{
+    background: rgba(0,0,0,0.05);
+}
+
+.hours td{
+    padding: 5px 10px;
+}
+
+.location{
+    width: 100%; 
+}
+
+.location td{
+    text-align: center;
+}
+
+address {
+    text-align: left;
+    display: inline-block;
+}
+
+.landmark-info{
+    font-size: 0.9em;
+    color: #777;
+    padding: 20px; 
+    background: rgba(0,0,0,0.05);
+}
+
+.list-group-item-text{
+    font-size: 0.95em;
+}
+
+#prodSubmenu{
+    font-size: 0.9em;
+}
+
+
+.btn-group .btn {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    font-size: 0.95em;
+    padding: 6px 10px;
+}
+
+.item{
+    position: relative;
+}
+
+.thumbnail{
+    position: relative;
+}
+
+.badges{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.badges .label{
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 0 5px 0 0 ;
+
+}
+
+.label-price-drop,
+.label-new-arrival{
+    display: none;
+}
+
+.pricedrop .label-price-drop{
+    display: inline-block;
+}
+
+.instock .label-new-arrival{
+    display: inline-block;
+}
+
+#productsTable{
+    width: 100%;
+}
+
+table.dataTable thead th, 
+table.dataTable thead td {
+    padding: 10px 18px;
+    border-bottom: 1px solid #ddd !important;
+}
+
+table.dataTable.no-footer {
+    border-bottom: none !important;
+}
+
+.submenu-container{
+    padding: 0;
+}
+
+#return-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+
+@media screen and (min-width:768px) {
+    .brand {
+        display: inherit;
+        margin: 0;
+        padding-bottom: 30px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        font-family: "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 5em;
+        /*font-weight: 700;*/
+        line-height: normal;
+        color: #fff;
+    }
+
+    .top-divider {
+        margin-top: 0;
+    }
+
+    .img-left {
+        float: left;
+        margin-right: 25px;
+    }
+
+    .address-bar {
+        display: inherit;
+        margin: 0;
+        padding: 0 0 40px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        text-transform: uppercase;
+        font-size: 1.25em;
+        font-weight: 400;
+        letter-spacing: 3px;
+        color: #fff;
+        /*temp*/
+        display: none;
+    }
+
+    .navbar {
+        border-radius: 0;
+    }
+
+    .navbar-header {
+        display: none;
+    }
+
+    .navbar {
+        min-height: 0;
+    }
+
+    .navbar-default {
+        border: none;
+        background: #fff;
+        background: rgba(0, 0, 0, 0.34);
+    }
+
+    .nav>li>a {
+        padding: 10px 25px;
+    }
+
+    .navbar-nav>li>a {
+        line-height: normal;
+    }
+
+    .navbar-nav {
+        display: table;
+        float: none;
+        margin: 0 auto;
+        table-layout: fixed;
+        font-size: 1.25em;
+    }
+
+    .brand-txt{
+        position: relative;
+        top: 14px;
+    }
+
+    .img-abt-us{
+        width: 250px;
+    }
+
+    .btn-group .btn {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    
+    .list-group-item-text{
+        height: 50px;
+        overflow: hidden;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .box:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}

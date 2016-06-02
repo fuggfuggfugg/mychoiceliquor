@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>My Choice Liquor</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
+    
+    <!-- Data tables CSS -->
+    <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body cz-shortcut-listen="true">
+
+    <div class="brand">
+        <a href="index.html">
+            <img src="img/logo.svg" alt="My Choice Liquor">
+        </a>
+        <span class="brand-txt">LIQUOR</span>
+    </div>
+    <div class="address-bar">1601 Interstate 35, Frontage Rd, Ste 390 | Round Rock, TX 78664 | <a href="tel:+15123882661">512.388.2661</a></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo.svg" alt="My Choice Liquor">
+                    <span class="brand-txt">LIQUOR</span>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="products.html" class="active">Products</a>
+                    </li>
+                    <li>
+                        <a href="kegs.html">Kegs</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 ">
+                    <!-- <hr> -->
+                    <h2 class="intro-text text-center">Our
+                        <strong>Product List</strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center submenu-container">
+                    <div class="btn-group" data-toggle="buttons" id="prodSubmenu">
+                        <label class="btn btn-info active">
+                            <input type="radio" name="options" id="option1" data-csv="beer.csv" autocomplete="off" checked> Beer
+                        </label>
+                        <label class="btn btn-info">
+                            <input type="radio" name="options" id="option2" data-csv="liquer.csv" autocomplete="off"> Liquer
+                        </label>
+                        <label class="btn btn-info">
+                            <input type="radio" name="options" id="option3" data-csv="rum_brandy.csv" autocomplete="off"> Rum/Brandy
+                        </label>
+                        <label class="btn btn-info">
+                            <input type="radio" name="options" id="option4" data-csv="tequila.csv" autocomplete="off"> Tequilla
+                        </label>
+                        <label class="btn btn-info">
+                            <input type="radio" name="options" id="option5" data-csv="vodka.csv" autocomplete="off"> Vodka
+                        </label>
+                        <label class="btn btn-info">
+                            <input type="radio" name="options" id="option6" data-csv="whiskey.csv" autocomplete="off"> Whiskey/Scotch
+                        </label>
+                        <label class="btn btn-info">
+                            <input type="radio" name="options" id="option7" data-csv="wine.csv" autocomplete="off"> Wine
+                        </label>
+                    </div>
+                    <hr>
+                </div>
+                <div id="products" class="row list-group hide">
+                </div>
+
+                <table id="productsTable" class=" order-column stripe">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Size</th>
+                            <th>Stock</th>
+                            <th><span class="glyphicon glyphicon-usd"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>        
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Copyright © <span id="yr"></span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Return to Top -->
+    <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- Mustache Templating -->
+    <script src="js/mustache.min.js"></script>
+    
+    <!-- product tile template -->
+    <script id="prodTemplate" type="text/template">
+        {{#resultSet}}
+            <div class="item  col-md-4 col-lg-3 {{badge}}">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="img/prod-empty.png" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            {{name}}
+                        </h4>
+                    </div>
+                    <div class="badges">
+                        <div class="label label-info label-new-arrival"> In stock </div>
+                        <div class="label label-danger label-price-drop"> Price Drop </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+
+        {{/resultSet}}
+    </script>
+    
+    <!-- product row template -->
+    <script id="prodRowTemplate" type="text/template">
+        {{#resultSet}}
+            <tr class="{{badge}}">
+                <td>
+                    {{name}}
+                </td>
+                <td>
+                    {{size}}
+                </td>
+                <td>
+                    <div class="label label-info label-new-arrival"> In Stock </div>
+                </td>
+                <td>
+                    <div class="label label-danger label-price-drop"> <span class=" glyphicon glyphicon-arrow-down"> </span> </div>
+                </td>
+            </tr>
+        {{/resultSet}}
+    </script>
+    
+    <!-- product json list -->
+    <script id="prodJSON"  src="js/productlist.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" ></script>
+
+    <script>
+        // update footer
+        var d = new Date();
+        var n = d.getFullYear();
+        var dd = d.getDay();
+        $("#yr").html(n);
+
+        $(function(){
+            template = $('#prodTemplate').html();
+            prodRowTemplate = $('#prodRowTemplate').html();
+            var table = null;
+            
+            function loadData(){
+                tabname = $("input[type='radio']:checked ").parent().text().trim().toLowerCase()
+                // $prodContainer = $("#products");
+                // $prodContainer.empty();
+                // $prodContainer.append(Mustache.render(template, { resultSet: prodlist[tabname] }));    
+
+                $productsTable = $("#productsTable");
+                if (table != null) {
+                    table.destroy() ;    
+                }
+                
+                $productsTable.find("tbody").empty()
+                
+
+                $productsTable.find("tbody").append(Mustache.render(prodRowTemplate, { resultSet: prodlist[tabname] }));
+                table = $productsTable.DataTable({
+                    "paging":   false,
+                    "ordering": true,
+                    "info":     false,
+                    "searching": false
+                });
+            }
+
+            // load data when the selection is changed
+            $("input[type='radio']").on("change", function(e){
+                loadData();
+            })
+
+            // load data for the first time
+            loadData();
+        });
+
+        // ===== Scroll to Top ==== 
+        $(window).scroll(function() {
+            if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+                $('#return-to-top').fadeIn(200);    // Fade in the arrow
+            } else {
+                $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+            }
+        });
+        $('#return-to-top').click(function() {      // When arrow is clicked
+            $('body,html').animate({
+                scrollTop : 0                       // Scroll to top of body
+            }, 500);
+        });
+    </script>
+    
+</body>
+
+</html>
