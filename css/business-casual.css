@@ -151,7 +151,7 @@ footer p {
 .navbar-default .navbar-nav>li>a.active {
     opacity: 1;
     color: #FFF;
-    background-color: transparent;
+    background-color: rgb(0, 0, 0);;
 }
 
 .navbar-default .navbar-toggle:focus, 
@@ -321,6 +321,31 @@ input[type="search"] {
     float: left !important;
 }
 
+.btn-dark {
+      background-color: hsl(211, 11%, 38%) ;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#636f7c", endColorstr="#56606b");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#636f7c), to(#56606b));
+  background-image: -moz-linear-gradient(top, #636f7c, #56606b);
+  background-image: -ms-linear-gradient(top, #636f7c, #56606b);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #636f7c), color-stop(100%, #56606b));
+  background-image: -webkit-linear-gradient(top, #636f7c, #56606b);
+  background-image: -o-linear-gradient(top, #636f7c, #56606b);
+  background-image: linear-gradient(#636f7c, #56606b);
+  border-color: #56606b #56606b hsl(211, 11%, 36.5%);
+  color: rgba(255,255,255,0.8);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.09);
+  -webkit-font-smoothing: antialiased;
+}
+.btn-dark:hover {
+    color: #fff;
+}
+
+.btn-dark.active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.27);
+    background-color: rgba(54, 60, 67, 1);
+    color: #fff;
+}
 
 @media screen and (min-width:768px) {
     .brand {
@@ -419,6 +444,7 @@ input[type="search"] {
 
     .box {
         padding: 15px;
+        padding-bottom: 30px
     }
 }
 
