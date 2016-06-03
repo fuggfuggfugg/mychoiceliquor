@@ -97,22 +97,25 @@
                             <input type="radio" name="options" id="option1" data-csv="data/beer.csv" autocomplete="off" checked> Beer
                         </label>
                         <label class="btn btn-info">
-                            <input type="radio" name="options" id="option2" data-csv="data/liquer.csv" autocomplete="off"> Liquer
-                        </label>
-                        <label class="btn btn-info">
-                            <input type="radio" name="options" id="option3" data-csv="data/rum_brandy.csv" autocomplete="off"> Rum/Brandy
+                            <input type="radio" name="options" id="option3" data-csv="data/rum.csv" autocomplete="off"> Rum
                         </label>
                         <label class="btn btn-info">
                             <input type="radio" name="options" id="option4" data-csv="data/tequila.csv" autocomplete="off"> Tequilla
                         </label>
                         <label class="btn btn-info">
-                            <input type="radio" name="options" id="option5" data-csv="data/vodka.csv" autocomplete="off"> Vodka
+                            <input type="radio" name="options" id="option5" data-csv="data/vodka.csv" autocomplete="off"> Vodka/Gin
                         </label>
                         <label class="btn btn-info">
                             <input type="radio" name="options" id="option6" data-csv="data/whiskey.csv" autocomplete="off"> Whiskey/Scotch
                         </label>
                         <label class="btn btn-info">
                             <input type="radio" name="options" id="option7" data-csv="data/wine.csv" autocomplete="off"> Wine
+                        </label>
+						<label class="btn btn-info">
+                            <input type="radio" name="options" id="option2" data-csv="data/liquer.csv" autocomplete="off"> Liquer
+                        </label>
+						<label class="btn btn-info">
+                            <input type="radio" name="options" id="option8" data-csv="data/brandy_cognac.csv" autocomplete="off"> Brandy/Cognac
                         </label>
                     </div>
                     <hr>
@@ -124,10 +127,10 @@
                     <thead>
                         <tr>
                             <th class="hidden-xs">
-                            <th class="hidden-xs" >Type</th>
                             <th>Brand</th>
                             <th>Description</th>
-                            <th>Size</th>
+                            <th class="hidden-xs" >Type</th>
+                            <th>Size (Ltrs)</th>
                             <th class="hidden-xs">Stock</th>
                         </tr>
                     </thead>
@@ -166,14 +169,14 @@
         {{#resultSet}}
             <tr>
                 <td class="hidden-xs"> </td>
-                <td class="hidden-xs" style="white-space: nowrap;">
-                    {{Type}}
-                </td>
-                <td>
+                <td  style="white-space: nowrap;">
                     {{Brand}}
                 </td>
                 <td>
                     {{Description}}
+                </td>
+				<td class="hidden-xs">
+                    {{Type}}
                 </td>
                 <td>
                     {{Size}}
